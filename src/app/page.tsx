@@ -7,6 +7,7 @@ import { skills } from "@/constans/skills";
 import { contacts } from "@/constans/contacts";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
+import { projects } from "@/constans/projects";
 
 export default function Home() {
   return (
@@ -87,37 +88,44 @@ export default function Home() {
         </section>
 
         {/* Projects Section */}
-        <section className="space-y-4">
-          <h2 className="text-xl font-bold font-mono flex items-center">
-            <span className="text-emerald-400 mr-2">{">"}</span> Projects
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <Card className="bg-zinc-900 border-zinc-800">
-              <CardContent className="p-4 space-y-2">
-                <h3 className="font-bold text-zinc-100">Mobile App</h3>
-                <p className="text-zinc-400 text-sm">
-                  A cross-platform mobile application built with Flutter and Firebase.
-                </p>
-                <Button variant="outline" size="sm" className="gap-1 mt-2">
-                  <ExternalLink size={14} />
-                  View Project
-                </Button>
-              </CardContent>
-            </Card>
-            <Card className="bg-zinc-900 border-zinc-800">
-              <CardContent className="p-4 space-y-2">
-                <h3 className="font-bold text-zinc-100">Web Dashboard</h3>
-                <p className="text-zinc-400 text-sm">
-                  A responsive admin dashboard built with Next.js and TailwindCSS.
-                </p>
-                <Button variant="outline" size="sm" className="gap-1 mt-2">
-                  <ExternalLink size={14} />
-                  View Project
-                </Button>
-              </CardContent>
-            </Card>
-          </div>
-        </section>
+        {projects.length ? (
+          <section className="space-y-4">
+            <h2 className="text-xl font-bold font-mono flex items-center">
+              <span className="text-emerald-400 mr-2">{">"}</span> Projects
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {projects
+                .sort((a, b) => Number(b.pin) - Number(a.pin))
+                .map((project, index) => {
+                  const {
+                    name,
+                    description,
+                    githubUrl,
+                    demoUrl,
+                    isOpenSource,
+                    stack,
+                    thumbnail,
+                    pin,
+                  } = project;
+                  return (
+                    <Card className="bg-zinc-900 border-zinc-800">
+                      <CardContent className="p-4 space-y-2">
+                        <h3 className="font-bold text-zinc-100">Mobile App</h3>
+                        <p className="text-zinc-400 text-sm">
+                          A cross-platform mobile application built with Flutter and
+                          Firebase.
+                        </p>
+                        <Button variant="outline" size="sm" className="gap-1 mt-2">
+                          <ExternalLink size={14} />
+                          View Project
+                        </Button>
+                      </CardContent>
+                    </Card>
+                  );
+                })}
+            </div>
+          </section>
+        ) : null}
 
         <Separator className="bg-zinc-800" />
 
