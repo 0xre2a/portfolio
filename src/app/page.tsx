@@ -4,6 +4,9 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { skills } from "@/constans/skills";
+import { contacts } from "@/constans/contacts";
+import { cn } from "@/lib/utils";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -80,7 +83,6 @@ export default function Home() {
                 {skill}
               </Badge>
             ))}
-           
           </div>
         </section>
 
@@ -125,44 +127,32 @@ export default function Home() {
             <span className="text-emerald-400 mr-2">{">"}</span> Connect
           </h2>
           <div className="flex flex-wrap gap-3">
-            <Button
-              variant="outline"
-              size="icon"
-              className="rounded-full bg-zinc-900 border-zinc-800 hover:bg-zinc-800 hover:text-emerald-400"
-            >
-              <Github className="h-5 w-5" />
-              <span className="sr-only">GitHub</span>
-            </Button>
-            <Button
-              variant="outline"
-              size="icon"
-              className="rounded-full bg-zinc-900 border-zinc-800 hover:bg-zinc-800 hover:text-blue-400"
-            >
-              <Twitter className="h-5 w-5" />
-              <span className="sr-only">Twitter</span>
-            </Button>
-            <Button
-              variant="outline"
-              size="icon"
-              className="rounded-full bg-zinc-900 border-zinc-800 hover:bg-zinc-800 hover:text-blue-500"
-            >
-              <Linkedin className="h-5 w-5" />
-              <span className="sr-only">LinkedIn</span>
-            </Button>
-            <Button
-              variant="outline"
-              size="icon"
-              className="rounded-full bg-zinc-900 border-zinc-800 hover:bg-zinc-800 hover:text-amber-400"
-            >
-              <Mail className="h-5 w-5" />
-              <span className="sr-only">Email</span>
-            </Button>
+            {contacts.map((contact, index) => {
+              const { Icon, name, classname, link } = contact;
+              return (
+                <Button
+                  asChild
+                  key={index}
+                  variant="outline"
+                  size="icon"
+                  className={cn(
+                    "rounded-full cursor-pointer bg-zinc-900 border-zinc-800 hover:bg-zinc-800 ",
+                    classname
+                  )}
+                >
+                  <Link href={link}>
+                    <Icon className="h-5 w-5" />
+                    <span className="sr-only">{name}</span>
+                  </Link>
+                </Button>
+              );
+            })}
           </div>
         </section>
 
         {/* Footer */}
         <footer className="pt-8 pb-4 text-center text-zinc-500 text-sm">
-          <p>© {new Date().getFullYear()} Febry Ardiansyah. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Reza Ghoreyshi. All rights reserved.</p>
           <p className="font-mono mt-1">{"// Built with Next.js and TailwindCSS"}</p>
         </footer>
       </div>
