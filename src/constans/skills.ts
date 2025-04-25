@@ -1,0 +1,16 @@
+export const skills = [
+  "React",
+  "Next.js",
+  "TypeScript",
+  "JavaScript",
+  "TailwindCss",
+  "Express.js",
+  "REST API",
+  "Git",
+  "Bun.js",
+  "Node.js",
+  "React Query",
+  "Solidity",
+  "MetaMask",
+  "Web3",
+];
