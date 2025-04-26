@@ -1,4 +1,4 @@
-import { Github, Twitter, Linkedin, Mail, ExternalLink } from "lucide-react";
+import {  ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
