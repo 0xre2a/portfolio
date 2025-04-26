@@ -32,13 +32,13 @@ export default function Home() {
             <br />
             &nbsp;&nbsp;passion:{" "}
             <span className="text-amber-300">
-              "Building performace , bleeding-edge web apps and dApps"
+              "Building  web apps and dApps"
             </span>
             ,
             <br />
             &nbsp;&nbsp;specialties:{" "}
             <span className="text-amber-300">
-              "Full-stack & Web3 developer specialized."
+              "Full-stack & Web3 developer ."
             </span>
             <br />
             {"}"};
@@ -160,7 +160,7 @@ export default function Home() {
 
         {/* Footer */}
         <footer className="pt-8 pb-4 text-center text-zinc-500 text-sm">
-          <p>© {new Date().getFullYear()} Reza Ghoreyshi. All rights reserved.</p>
+          
           <p className="font-mono mt-1">{"// Built with Next.js and TailwindCSS"}</p>
         </footer>
       </div>
